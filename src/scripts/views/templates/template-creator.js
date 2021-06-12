@@ -1,11 +1,10 @@
 import CONFIG from '../../globals/config';
 
-const createMovieDetailTemplate = (movie) => {
-  `
-  <h2 class="movie__title">${movie.title}</h2>
-  <img class="movie__poster" src="${CONFIG.BASE_IMAGE_URL + movie.poster_path}" alt="${movie.title}" />
-  <div class="movie__info">
-  <h3>Information</h3>
+const createMovieDetailTemplate = (movie) => `
+    <h2 class="movie__title">${movie.title}</h2>
+    <img class="movie__poster" src="${CONFIG.BASE_IMAGE_URL + movie.poster_path}" alt="${movie.title}" />
+    <div class="movie__info">
+    <h3>Information</h3>
     <h4>Tagline</h4>
     <p>${movie.tagline}</p>
     <h4>Release Date</h4>
@@ -14,12 +13,12 @@ const createMovieDetailTemplate = (movie) => {
     <p>${movie.runtime} minutes</p>
     <h4>Rating</h4>
     <p>${movie.vote_average}</p>
-  </div>
-  <div class="movie__overview">
+    </div>
+    <div class="movie__overview">
     <h3>Overview</h3>
     <p>${movie.overview}</p>
-  </div>
-`}
+    </div>
+`
 const createMovieItemTemplate = (movie) => `
   <div class="movie-item">
     <div class="movie-item__header">
@@ -35,5 +34,20 @@ const createMovieItemTemplate = (movie) => `
     </div>
   </div>
   `;
+const createLikeButtonTemplate = () => `
+  <button aria-label="like this movie" id="likeButton" class="like">
+     <i class="fa fa-heart-o" aria-hidden="true"></i>
+  </button>
+`;
 
-export { createMovieItemTemplate, createMovieDetailTemplate };
+const createLikedButtonTemplate = () => `
+  <button aria-label="unlike this movie" id="likeButton" class="like">
+    <i class="fa fa-heart" aria-hidden="true"></i>
+  </button>
+`;
+export {
+  createMovieDetailTemplate,
+  createMovieItemTemplate,
+  createLikeButtonTemplate,
+  createLikedButtonTemplate,
+};
